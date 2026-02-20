@@ -1,6 +1,3 @@
-/* =========================================
-   1. GLOBAL RESET (KODE BARU: Agar Full Layar)
-   ========================================= */
 * {
     box-sizing: border-box;
 }
@@ -24,17 +21,19 @@ html, body {
 }
 
 /* =========================================
-   2. NAVBAR
+    2. NAVBAR
    ========================================= */
 .navbar {
     box-shadow: 0px 1px 20px rgba(0,0,0,0.1); /* KODE BARU: Shadow lebih halus */
+    background: #6594B1;
+background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255, 1) 75%, rgba(221, 174, 211, 1) 100%);
 }
 
 /* =========================================
-   3. PROFIL / HOME
+    3. PROFIL / HOME
    ========================================= */
 .profil {
-    min-height: 100vh; /* KODE BARU: Menggunakan min-height agar aman di HP */
+    min-height: 90vh; /* KODE BARU: Menggunakan min-height agar aman di HP */
     padding: 20px;
     background-color: #EEEEEE;
     display: flex;
@@ -53,7 +52,7 @@ html, body {
     border: 5px solid #DDAED3;
     border-radius: 50%;
     /* KODE BARU: Shadow diperhalus agar tidak merusak lebar layar */
-    box-shadow: 0px 0px 30px rgba(221,174,211,0.8); 
+    box-shadow: 0px 0px 30px rgba(221,174,211,1); 
 }
 
 .namaprof {
@@ -95,18 +94,21 @@ html, body {
 }
 
 /* =========================================
-   4. ABOUT (TENTANG ABKA)
+    4. ABOUT (TENTANG ABKA)
    ========================================= */
 .ttgsaya {
-    background: #6594B1;
+    /* Gradasi dari Putih (#EEEEEE) ke Biru (#6594B1) */
+    background: linear-gradient(to bottom, #EEEEEE 0%, #6594B1 15%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px 20px; /* KODE BARU: Padding lebih terkontrol */
-    font-family: "Gabarito", sans-serif;
-    letter-spacing: 2px;
+    padding: 100px 20px;
     color: #DDAED3;
-    /* KODE BARU: Menghapus box-shadow raksasa yang bikin layar putih */
+}
+/* Tambahkan ini untuk menghaluskan bagian bawah Tentang Abka */
+.ttgsaya {
+    /* Update background sebelumnya agar ada gradasi di atas DAN bawah */
+    background: linear-gradient(to bottom, #EEEEEE 0%, #6594B1 15%, #6594B1 85%, #FFFFFF 100%);
 }
 
 .ttgsy, .pttg {
@@ -121,7 +123,7 @@ html, body {
 }
 
 /* =========================================
-   5. PHOTO PROJECT (KODE BARU: Perbaikan Tinggi Foto)
+    5. PHOTO PROJECT (KODE BARU: Perbaikan Tinggi Foto)
    ========================================= */
 .prjtp, .prjtv {
     text-align: center;
@@ -129,11 +131,12 @@ html, body {
     font-weight: 600;
     font-family: "Gabarito", sans-serif;
     color: #DDAED3;
+    padding-top: 7%;
 }
 
 /* KODE BARU: Menyamakan tinggi semua foto carousel */
 .carousel-inner img {
-    height: 450px; /* Tentukan tinggi tetap */
+    height: 400px; /* Tentukan tinggi tetap */
     object-fit: cover; /* Foto dipotong otomatis agar tidak gepeng */
     object-position: center;
 }
@@ -153,41 +156,44 @@ html, body {
 }
 
 /* =========================================
-   6. VIDEO PROJECT
+    6. VIDEO PROJECT
    ========================================= */
 .v {
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .va {
-    width: 95%;
+    width: 90%;
     height: auto;
     border-radius: 10px; /* KODE BARU: Biar lebih estetik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .vsatu, .vdua, .vtiga {
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* =========================================
-   7. SKILLS
+    7. SKILLS
    ========================================= */
 .sk {
     background-color: #DDAED3;
+    color: #EEEEEE;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 20px;
+    padding: 150px 20px;
     /* KODE BARU: Menghapus box-shadow raksasa */
-}
-
-.skl, .skk {
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    /* Gradasi dari Putih ke Pink (#DDAED3) lalu kembali ke Putih di bawah */
+    background: linear-gradient(to bottom, #FFFFFF 0%, #DDAED3 15%, #DDAED3 85%, whitesmoke 100%);
 }
 
 .skk .progres {
@@ -197,6 +203,7 @@ html, body {
     background: #fff;
     border-radius: 50%;
     color: #EEEEEE;
+    margin: 10px 20px;
 }
 
 /* KODE BARU: Perbaikan tampilan progress circle */
@@ -212,7 +219,7 @@ html, body {
 .skk .progres::after {
     content: "";
     position: absolute;
-    inset: 12px;
+    inset: 10px;
     background: #DDAED3; /* Harus sama dengan background section .sk */
     border-radius: 50%;
 }
@@ -228,17 +235,11 @@ html, body {
 .skk .progres h4 { top: 60%; font-size: 0.9em; color: var(--clr); text-transform: uppercase; }
 
 /* =========================================
-   8. CONTACT & FOOTER
+    8. CONTACT & FOOTER
    ========================================= */
 .kntk {
     background: whitesmoke;
     padding: 50px 20px;
-}
-
-.hkntk, .pkntk, .ksatu {
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
 }
 
 .ksatu {
@@ -260,42 +261,76 @@ html, body {
 }
 
 footer {
-    padding: 40px 20px;
+    padding: 10px 20px;
     background: #6594B1;
     color: white;
     text-align: center;
 }
 
-/* =========================================
-   9. ANIMATIONS (KODE PERBAIKAN)
-   ========================================= */
-
-/* Animasi Fade In Standar (Agar jalan di semua browser) */
-@keyframes fadein {
-    from { 
-        opacity: 0; 
-        transform: translateY(30px); /* Muncul dari bawah sedikit */
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}
-
-/* Terapkan animasi langsung ke elemen */
-/* Saya hapus animation-timeline agar animasi langsung jalan saat page di-load */
-.ttgsy, .pttg, .prjtp, .prjtv, .csatu, .cdua, .vsatu, .vdua, .vtiga, .skl, .skk, .hkntk, .pkntk, .ksatu {
-    animation: fadein 1.2s ease-out forwards;
-    /* animation-timeline & animation-range DIHAPUS karena tidak support semua browser */
-}
-
-/* Tetap pertahankan animasi ketik/slide-up namamu */
 @keyframes slide-up {
-    0%, 10% { transform: translateY(0%); }
-    15%, 25% { transform: translateY(-100%); }
-    30%, 40% { transform: translateY(-200%); }
-    45%, 55% { transform: translateY(-300%); }
-    60%, 70% { transform: translateY(-400%); }
-    75%, 85% { transform: translateY(-500%); }
+    0%, 10% {
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+    }
+    15%, 25% {
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+    }
+    30%, 40% {
+        transform: translateY(-200%);
+        -webkit-transform: translateY(-200%);
+        -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+        -o-transform: translateY(-200%);
+    }
+    45%, 55% {
+        transform: translateY(-300%);
+        -webkit-transform: translateY(-300%);
+        -moz-transform: translateY(-300%);
+        -ms-transform: translateY(-300%);
+        -o-transform: translateY(-300%);
+    }
+    60%, 70% {
+        transform: translateY(-400%);
+        -webkit-transform: translateY(-400%);
+        -moz-transform: translateY(-400%);
+        -ms-transform: translateY(-400%);
+        -o-transform: translateY(-400%);
+    }
+    75%, 85% {
+        transform: translateY(-500%);
+        -webkit-transform: translateY(-500%);
+        -moz-transform: translateY(-500%);
+        -ms-transform: translateY(-500%);
+        -o-transform: translateY(-500%);
 }
+
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+        scale: 0.1;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+    /* 
+    animation: fadein linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+    */
+}
+
+
+
+
+
+
 
