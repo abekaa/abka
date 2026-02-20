@@ -9,6 +9,8 @@ html, body {
     max-width: 100vw; /* KODE BARU: Mencegah scroll ke samping */
     scroll-behavior: smooth;
     overflow-x: hidden; /* KODE BARU: Menghapus whitespace di kanan */
+    background: white;
+    background-color: white;
 }
 
 /* KODE BARU: Memaksa semua container-fluid mepet ke pinggir layar */
@@ -56,10 +58,11 @@ background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255
 }
 
 .namaprof {
-    font-size: 24px;
+    font-size: xx-large;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: left; /* Mepet kiri/foto di PC */
     font-family: "Playwrite NZ Basic", cursive;
     font-weight: 900;
     padding-top: 30px;
@@ -67,8 +70,21 @@ background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255
 
 .content {
     display: flex;
+    justify-content: flex-start; /* Mepet kiri/foto di PC */
     padding-bottom: 30px;
     padding-top: 10px;
+}
+
+/* --- TAMPILAN KHUSUS HP (MOBILE) --- */
+@media (max-width: 768px) {
+    .namaprof {
+        text-align: center; /* Rata tengah di HP */
+        align-items: center;
+    }
+
+    .content {
+        justify-content: center; /* Konten I'm a... ke tengah di HP */
+    }
 }
 
 .wrapper .content ol {
@@ -108,7 +124,7 @@ background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255
 /* Tambahkan ini untuk menghaluskan bagian bawah Tentang Abka */
 .ttgsaya {
     /* Update background sebelumnya agar ada gradasi di atas DAN bawah */
-    background: linear-gradient(to bottom, #EEEEEE 0%, #6594B1 15%, #6594B1 85%, #FFFFFF 100%);
+    background: linear-gradient(to bottom, #EEEEEE 0%, #6594B1 15%, #6594B1 85%, white 100%);
 }
 
 .ttgsy, .pttg {
@@ -193,7 +209,14 @@ background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255
     padding: 150px 20px;
     /* KODE BARU: Menghapus box-shadow raksasa */
     /* Gradasi dari Putih ke Pink (#DDAED3) lalu kembali ke Putih di bawah */
-    background: linear-gradient(to bottom, #FFFFFF 0%, #DDAED3 15%, #DDAED3 85%, whitesmoke 100%);
+    background: linear-gradient(to bottom, #FFFFFF 0%, #DDAED3 15%, #DDAED3 85%, white 100%);
+}
+.skk {
+    display: flex;
+    flex-wrap: wrap; /* Agar lingkaran turun ke bawah jika tidak muat */
+    justify-content: center; /* KODE BARU: Semua lingkaran kumpul di tengah */
+    gap: 30px; 
+    margin-top: 30px;
 }
 
 .skk .progres {
@@ -238,18 +261,18 @@ background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255
     8. CONTACT & FOOTER
    ========================================= */
 .kntk {
-    background: whitesmoke;
-    padding: 50px 20px;
+    background: white;
+    text-align: center; /* Memastikan semua teks di dalam kntk ke tengah */
+    padding: 80px 20px 0px 20px;
 }
 
 .ksatu {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Memastikan ikon WA, IG, Email di tengah */
     align-items: center;
-    gap: 50px; /* KODE BARU: Jarak lebih rapat agar tidak luber */
-    flex-wrap: wrap; /* KODE BARU: Biar turun ke bawah kalau di HP */
+    gap: 40px;
+    flex-wrap: wrap;
     padding-bottom: 50px;
-    background: whitesmoke;
 }
 
 .akntk {
@@ -327,10 +350,3 @@ footer {
     animation-range: entry 0% cover 60%;
     */
 }
-
-
-
-
-
-
-
