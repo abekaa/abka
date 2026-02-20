@@ -1,72 +1,87 @@
-body {
+/* =========================================
+   1. GLOBAL RESET (KODE BARU: Agar Full Layar)
+   ========================================= */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
     padding: 0;
     margin: 0;
+    width: 100%;
+    max-width: 100vw; /* KODE BARU: Mencegah scroll ke samping */
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: hidden; /* KODE BARU: Menghapus whitespace di kanan */
 }
+
+/* KODE BARU: Memaksa semua container-fluid mepet ke pinggir layar */
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
 .navbar {
-    box-shadow: 0px 1px 30px 15px whitesmoke;
+    box-shadow: 0px 1px 20px rgba(0,0,0,0.1); /* KODE BARU: Shadow lebih halus */
 }
+
+/* =========================================
+   3. PROFIL / HOME
+   ========================================= */
 .profil {
-    height: 100dvh;
+    min-height: 100vh; /* KODE BARU: Menggunakan min-height agar aman di HP */
     padding: 20px;
     background-color: #EEEEEE;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: #6594B1;
-    
 }
 
-.container {
-    background-color: #EEEEEE;
-}
 .imgprfl {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .imgprfla {
     border: 5px solid #DDAED3;
     border-radius: 50%;
-    -webkit-box-shadow:0px 0px 50px 50px rgba(221,174,211,0.7);
-    -moz-box-shadow: 0px 0px 50px 50px rgba(221,174,211,0.7);
-    box-shadow: 0px 0px 50px 50px rgba(221,174,211,0.7);
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+    /* KODE BARU: Shadow diperhalus agar tidak merusak lebar layar */
+    box-shadow: 0px 0px 30px rgba(221,174,211,0.8); 
 }
+
 .namaprof {
     font-size: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: "Playwrite NZ Basic", cursive;
-    font-optical-sizing: auto;
     font-weight: 900;
-    font-style: normal;
     padding-top: 30px;
 }
+
 .content {
     display: flex;
     padding-bottom: 30px;
     padding-top: 10px;
 }
+
 .wrapper .content ol {
     list-style-type: none;
-
     --height: 3.4rem;
     height: var(--height);
     line-height: var(--height);
-
     overflow: hidden;
-
 }
 
 .wrapper .content ol li {
     animation: slide-up 20s infinite;
-    -webkit-animation: slide-up 20s infinite;
 }
 
 .wrapper .content ol li span {
@@ -77,338 +92,193 @@ body {
     -webkit-background-clip: text;
     white-space: nowrap;
     font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
 }
 
+/* =========================================
+   4. ABOUT (TENTANG ABKA)
+   ========================================= */
 .ttgsaya {
     background: #6594B1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10%;
+    padding: 80px 20px; /* KODE BARU: Padding lebih terkontrol */
     font-family: "Gabarito", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
     letter-spacing: 2px;
-    box-shadow: 0px 0px 20px 40px #6594B1;
     color: #DDAED3;
-    
+    /* KODE BARU: Menghapus box-shadow raksasa yang bikin layar putih */
 }
-.ttgsy {
-    font-weight: 600;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-.pttg {
-    color: white;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-.prjtp {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10%;
-    font-weight: 600;
-    font-family: "Gabarito", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: #DDAED3;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-.csatu {
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-.cdua {
+
+.ttgsy, .pttg {
     animation: fadein linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
 
-.prjtv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 7%;
+.pttg {
+    color: white;
+    max-width: 800px; /* KODE BARU: Agar teks tidak terlalu lebar di PC */
+}
+
+/* =========================================
+   5. PHOTO PROJECT (KODE BARU: Perbaikan Tinggi Foto)
+   ========================================= */
+.prjtp, .prjtv {
+    text-align: center;
+    padding-top: 50px;
     font-weight: 600;
     font-family: "Gabarito", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
     color: #DDAED3;
+}
+
+/* KODE BARU: Menyamakan tinggi semua foto carousel */
+.carousel-inner img {
+    height: 450px; /* Tentukan tinggi tetap */
+    object-fit: cover; /* Foto dipotong otomatis agar tidak gepeng */
+    object-position: center;
+}
+
+/* Penyesuaian tinggi foto untuk layar HP */
+@media (max-width: 768px) {
+    .carousel-inner img {
+        height: 250px; 
+    }
+}
+
+.csatu, .cdua {
+    padding: 15px; /* KODE BARU: Jarak antar carousel */
     animation: fadein linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
-.vsatu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-.vdua {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-.vtiga{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2%;
-    padding-bottom: 7%;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+
+/* =========================================
+   6. VIDEO PROJECT
+   ========================================= */
+.v {
+    padding: 20px;
 }
 
 .va {
-  /* Agar di HP lebarnya penuh mengikuti container-nya */
-    width: 90%; 
-
-  /* Menjaga rasio video agar tidak gepeng */
-    height: auto; 
+    width: 95%;
+    height: auto;
+    border-radius: 10px; /* KODE BARU: Biar lebih estetik */
 }
 
+.vsatu, .vdua, .vtiga {
+    animation: fadein linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+/* =========================================
+   7. SKILLS
+   ========================================= */
 .sk {
     background-color: #DDAED3;
-    box-shadow: 0px 0px 15px 40px #DDAED3;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    padding: 5%;
+    padding: 80px 20px;
+    /* KODE BARU: Menghapus box-shadow raksasa */
 }
-.skl {
-    font-weight: 700;
-    color: #EEEEEE;
-    padding-bottom: 2%;
+
+.skl, .skk {
     animation: fadein linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
-.skk {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
+
 .skk .progres {
     position: relative;
     width: 140px;
     height: 140px;
-    background: #fff linear-gradient(to right, transparent 50%, var(--clr)0);
+    background: #fff;
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
     color: #EEEEEE;
 }
-.skk .progres h3{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    font-size: 2em;
-    z-index: 2;
-    font-weight: 700;
-}
-.skk .progres h3 span{
-    font-size: 0.6em;
-    font-weight: 400;
 
-}
-.skk .progres h4 {
-    position: absolute;
-    top: 63%;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    text-transform: uppercase;
-    z-index: 1;
-    font-weight: 600;
-    color: var(--clr);
-    font-size: 1.1em;
-    z-index: 2;
-}
-/* 1. Bagian Berwarna (Progress) */
+/* KODE BARU: Perbaikan tampilan progress circle */
 .skk .progres::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Menggunakan i sebagai persentase dari 360 derajat */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: conic-gradient(var(--clr) calc(var(--i) * 1%), #fff 0);
-    border-radius: 50%; /* Bulat sempurna */
+    border-radius: 50%;
 }
 
-/* 2. Lubang Tengah (Bentuk Cincin) */
 .skk .progres::after {
     content: "";
     position: absolute;
-    /* Jarak inset menentukan ketebalan garis lingkaran */
-    inset: 12px; 
-    background: #DDAED3; /* Warna ini harus sama dengan background section kamu */
+    inset: 12px;
+    background: #DDAED3; /* Harus sama dengan background section .sk */
     border-radius: 50%;
 }
+
+.skk .progres h3, .skk .progres h4 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.skk .progres h3 { top: 30%; font-size: 1.8em; font-weight: 700; margin: 0; }
+.skk .progres h4 { top: 60%; font-size: 0.9em; color: var(--clr); text-transform: uppercase; }
+
+/* =========================================
+   8. CONTACT & FOOTER
+   ========================================= */
 .kntk {
-    height: 100%;
     background: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style-type: none;
-    text-decoration: none;
+    padding: 50px 20px;
 }
-.hkntk {
-    padding-top: 8%;
-    font-weight: 600;
-    font-family: "Gabarito", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: #6594B1;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-.pkntk {
-    color: #DDAED3;
-    font-weight: 600;
+
+.hkntk, .pkntk, .ksatu {
     animation: fadein linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
 
-.kk {
-    height: 55dvh;
-    background: whitesmoke;
-}
 .ksatu {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    gap: 100px;
-    padding-bottom: 5%;
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    gap: 50px; /* KODE BARU: Jarak lebih rapat agar tidak luber */
+    flex-wrap: wrap; /* KODE BARU: Biar turun ke bawah kalau di HP */
+    padding-bottom: 50px;
+    background: whitesmoke;
 }
 
-.kimg {
-    padding-bottom: 10%;
-}
 .akntk {
-    padding-top: 2%;
     text-decoration: none;
     color: #6594B1;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 600;
+    text-align: center;
 }
 
 footer {
-    padding: 2px;
+    padding: 40px 20px;
     background: #6594B1;
     color: white;
-    box-shadow: 0px 0px 20px 40px #6594B1;
-}
-.fp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
+/* =========================================
+   9. ANIMATIONS
+   ========================================= */
 @keyframes slide-up {
-    0%, 10% {
-        transform: translateY(0%);
-        -webkit-transform: translateY(0%);
-        -moz-transform: translateY(0%);
-        -ms-transform: translateY(0%);
-        -o-transform: translateY(0%);
-    }
-    15%, 25% {
-        transform: translateY(-100%);
-        -webkit-transform: translateY(-100%);
-        -moz-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-        -o-transform: translateY(-100%);
-    }
-    30%, 40% {
-        transform: translateY(-200%);
-        -webkit-transform: translateY(-200%);
-        -moz-transform: translateY(-200%);
-        -ms-transform: translateY(-200%);
-        -o-transform: translateY(-200%);
-    }
-    45%, 55% {
-        transform: translateY(-300%);
-        -webkit-transform: translateY(-300%);
-        -moz-transform: translateY(-300%);
-        -ms-transform: translateY(-300%);
-        -o-transform: translateY(-300%);
-    }
-    60%, 70% {
-        transform: translateY(-400%);
-        -webkit-transform: translateY(-400%);
-        -moz-transform: translateY(-400%);
-        -ms-transform: translateY(-400%);
-        -o-transform: translateY(-400%);
-    }
-    75%, 85% {
-        transform: translateY(-500%);
-        -webkit-transform: translateY(-500%);
-        -moz-transform: translateY(-500%);
-        -ms-transform: translateY(-500%);
-        -o-transform: translateY(-500%);
+    0%, 10% { transform: translateY(0%); }
+    15%, 25% { transform: translateY(-100%); }
+    30%, 40% { transform: translateY(-200%); }
+    45%, 55% { transform: translateY(-300%); }
+    60%, 70% { transform: translateY(-400%); }
+    75%, 85% { transform: translateY(-500%); }
 }
 
-}
 @keyframes fadein {
-    from {
-        opacity: 0;
-        scale: 0.1;
-    }
-    to {
-        opacity: 1;
-        scale: 1;
-    }
-    /* 
-    animation: fadein linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 60%;
-    */
+    from { opacity: 0; transform: scale(0.9); } /* KODE BARU: Scale diperhalus */
+    to { opacity: 1; transform: scale(1); }
 }
-
-
-
-
-
-
-
