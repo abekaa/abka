@@ -273,6 +273,7 @@ background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255
     gap: 40px;
     flex-wrap: wrap;
     padding-bottom: 50px;
+    background: white;
 }
 
 .akntk {
@@ -281,6 +282,7 @@ background: linear-gradient(131deg,rgba(101, 148, 177, 1) 0%, rgba(255, 255, 255
     font-size: 1.1em;
     font-weight: 600;
     text-align: center;
+    background: white;
 }
 
 footer {
@@ -350,3 +352,4 @@ footer {
     animation-range: entry 0% cover 60%;
     */
 }
+
