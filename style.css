@@ -267,8 +267,29 @@ footer {
 }
 
 /* =========================================
-   9. ANIMATIONS
+   9. ANIMATIONS (KODE PERBAIKAN)
    ========================================= */
+
+/* Animasi Fade In Standar (Agar jalan di semua browser) */
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); /* Muncul dari bawah sedikit */
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Terapkan animasi langsung ke elemen */
+/* Saya hapus animation-timeline agar animasi langsung jalan saat page di-load */
+.ttgsy, .pttg, .prjtp, .prjtv, .csatu, .cdua, .vsatu, .vdua, .vtiga, .skl, .skk, .hkntk, .pkntk, .ksatu {
+    animation: fadein 1.2s ease-out forwards;
+    /* animation-timeline & animation-range DIHAPUS karena tidak support semua browser */
+}
+
+/* Tetap pertahankan animasi ketik/slide-up namamu */
 @keyframes slide-up {
     0%, 10% { transform: translateY(0%); }
     15%, 25% { transform: translateY(-100%); }
@@ -278,7 +299,3 @@ footer {
     75%, 85% { transform: translateY(-500%); }
 }
 
-@keyframes fadein {
-    from { opacity: 0; transform: scale(0.9); } /* KODE BARU: Scale diperhalus */
-    to { opacity: 1; transform: scale(1); }
-}
