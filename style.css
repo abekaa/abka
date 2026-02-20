@@ -9,7 +9,6 @@ body {
 }
 .profil {
     height: 100dvh;
-    width: auto;
     padding: 20px;
     background-color: #EEEEEE;
     display: flex;
@@ -103,7 +102,6 @@ body {
     animation-range: entry 0% cover 40%;
 }
 .pttg {
-    width: 100%;
     color: white;
     animation: fadein linear;
     animation-timeline: view();
@@ -407,7 +405,6 @@ footer {
     animation-range: entry 0% cover 60%;
     */
 }
-
 
 
 
